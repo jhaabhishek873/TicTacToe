@@ -42,14 +42,13 @@ const checkWin = ()=>{
  Array.from(boxes).forEach(element =>{
     let boxtext = element.querySelector(".boxtext");
     element.addEventListener('click',()=>{
-        if(boxtext.innerText === ''){
+        if(boxtext.innerText === '' && !isgameover){
             boxtext.innerText = turn;
             turn = changeturn();
             audioTurn.play();
             checkWin();
-            if(!isgameover){
-                document.getElementsByClassName("info")[0].innerText = "Turn for " + turn;
-            }
+            document.getElementsByClassName("info")[0].innerText = "Turn for " + turn;
+            
             
         }
     })
